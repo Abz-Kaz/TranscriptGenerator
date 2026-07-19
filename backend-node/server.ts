@@ -77,7 +77,8 @@ app.get('/students/:id/transcript/pdf', async (req, res) => {
   const data = await getTranscriptData(parseInt(req.params.id));
   if (!data) return res.status(404).json({ error: 'Student not found' });
 
-  const doc = new PDFDocument({ margin: 50 });
+  // @ts-ignore
+  const doc = new PDFDocument({ margin: 30, size: 'A4' });
   res.setHeader('Content-Type', 'application/pdf');
   res.setHeader('Content-Disposition', `attachment; filename="transcript_${data.student.registration_number}.pdf"`);
   
@@ -114,7 +115,7 @@ app.get('/students/:id/transcript/pdf', async (req, res) => {
 
     await doc.table(tableData, {
       prepareHeader: () => doc.font("Helvetica-Bold").fontSize(10),
-      prepareRow: (row, indexColumn, indexRow, rectRow, rectCell) => {
+      prepareRow: (row: any, indexColumn: any, indexRow: any, rectRow: any, rectCell: any) => {
         doc.font("Helvetica").fontSize(10);
       },
     });
