@@ -12,11 +12,11 @@ app.get('/students', async (req, res) => {
   const students = await prisma.student.findMany({
     where: query ? {
       OR: [
-        { first_name: { contains: query } },
-        { last_name: { contains: query } },
-        { registration_number: { contains: query } }
-      ]
-    } : undefined
+        { first_name: { contains: query, mode: 'insensitive' } },
+        { last_name: { contains: query, mode: 'insensitive' } },
+        { registration_number: { contains: query, mode: 'insensitive' } }
+      ] as any
+    } : {}
   });
   res.json(students);
 });
