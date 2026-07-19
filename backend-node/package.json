@@ -6,8 +6,7 @@
   "scripts": {
     "start": "tsx server.ts",
     "dev": "nodemon --exec tsx server.ts",
-    "seed": "tsx prisma/seed.ts",
-    "postinstall": "npx prisma generate"
+    "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",

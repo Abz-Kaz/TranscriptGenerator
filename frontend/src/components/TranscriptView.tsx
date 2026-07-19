@@ -43,7 +43,8 @@ export default function TranscriptView({ studentId, onBack }: { studentId: numbe
 
   const fetchTranscript = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/students/${studentId}/transcript`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/students/${studentId}/transcript`);
       const transcriptData = await response.json();
       setData(transcriptData);
     } catch (error) {
@@ -54,7 +55,8 @@ export default function TranscriptView({ studentId, onBack }: { studentId: numbe
   };
 
   const handleDownload = () => {
-    window.open(`http://localhost:8000/students/${studentId}/transcript/pdf`, '_blank');
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    window.open(`${apiUrl}/students/${studentId}/transcript/pdf`, '_blank');
   };
 
   if (loading) {

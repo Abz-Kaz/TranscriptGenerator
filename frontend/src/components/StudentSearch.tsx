@@ -22,7 +22,8 @@ export default function StudentSearch({ onSelectStudent }: { onSelectStudent: (i
   const fetchStudents = async (searchQuery = '') => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/students?query=${searchQuery}`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/students?query=${searchQuery}`);
       const data = await response.json();
       setStudents(data);
     } catch (error) {
