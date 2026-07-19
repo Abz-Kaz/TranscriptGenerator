@@ -7,7 +7,7 @@
     "start": "tsx server.ts",
     "dev": "nodemon --exec tsx server.ts",
     "seed": "tsx prisma/seed.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -15,10 +15,11 @@
   "type": "commonjs",
   "dependencies": {
     "@prisma/client": "^5.22.0",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "pdfkit": "^0.19.1",
-    "pdfkit-table": "^0.2.11"
+    "cors": "^2.x.x",
+    "express": "^4.x.x",
+    "pdfkit": "^0.15.x",
+    "pdfkit-table": "^0.2.11",
+    "prisma": "^5.x.x"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
