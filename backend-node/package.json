@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx api/index.ts",
-    "dev": "nodemon --exec tsx api/index.ts",
+    "start": "tsx server.ts",
+    "dev": "nodemon --exec tsx server.ts",
     "seed": "tsx prisma/seed.ts",
     "build": "npx prisma generate"
   },
